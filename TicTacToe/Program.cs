@@ -15,14 +15,18 @@
         {
             DisplayTable();
 
-            Console.WriteLine("");
-            Console.WriteLine("Player " + playerTurn + " Turn");
-            Console.WriteLine("Select A Slot");
-
-            if (gameEnded) { }
+            if (gameEnded)
+            {
+                Console.WriteLine("");
+                Console.WriteLine("Game Ended");
+                Console.WriteLine(winnerPlayer + " Has Won");
+            }
 
             else
             {
+                Console.WriteLine("");
+                Console.WriteLine("Player " + playerTurn + " Turn");
+                Console.WriteLine("Select A Slot");
 
                 if (playerTurn == 1)
                 {
@@ -171,6 +175,7 @@
 
         public static string[] playerMarks = { "X", "O" };
         public static bool gameEnded;
+        public static string winnerPlayer = "";
 
         public static void CheckWinner()
         {
@@ -190,11 +195,15 @@
                     if(playerMarks[i] == "X")
                     {
                         Console.WriteLine("PLAYER 1 WON");
+
+                        winnerPlayer = "Player 1";
                     }
 
                     else
                     {
                         Console.WriteLine("PLAYER 2 WON");
+
+                        winnerPlayer = "Player 2";
                     }
 
                     Console.WriteLine("GAME ENDED");
